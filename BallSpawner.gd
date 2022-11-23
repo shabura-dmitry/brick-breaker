@@ -5,9 +5,9 @@ var Ball = preload("res://Ball.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var ball = Ball.instance()
-	add_child(ball)
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	var ball = Ball.instance()
+	if Input.is_action_just_pressed("mouse_left"):
+		add_child(ball)
