@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://ball.png" type="Texture" id=1]
+[ext_resource path="res://Ball.gd" type="Script" id=2]
+
+[sub_resource type="PhysicsMaterial" id=5]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 32.0001
 
 [node name="Ball" type="RigidBody2D"]
+physics_material_override = SubResource( 5 )
+contacts_reported = 1
+contact_monitor = true
+linear_velocity = Vector2( 0, -500 )
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -6.10352e-05, 0 )
@@ -13,5 +23,4 @@ scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )

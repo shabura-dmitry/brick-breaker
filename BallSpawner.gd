@@ -10,4 +10,5 @@ func _ready():
 func _process(delta):
 	var ball = Ball.instance()
 	if Input.is_action_just_pressed("mouse_left"):
-		add_child(ball)
+		get_tree().get_root().get_node("Arena/Path2D/PathFollow2D/Platform").add_child(ball)
+		ball.position.y += 10
